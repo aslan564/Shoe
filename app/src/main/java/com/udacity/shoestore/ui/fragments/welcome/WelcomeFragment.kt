@@ -1,4 +1,4 @@
-package com.udacity.shoestore.ui.fragments.boarding
+package com.udacity.shoestore.ui.fragments.welcome
 
 import android.os.Bundle
 import android.view.LayoutInflater

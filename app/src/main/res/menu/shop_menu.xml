@@ -8,7 +8,7 @@
                 android:title="@string/logout" />
 
             <item
-                android:id="@+id/nav_instruction"
+                android:id="@+id/nav_details"
                 android:icon="@drawable/ic_boarding"
                 android:title="@string/rule" />
 </menu>

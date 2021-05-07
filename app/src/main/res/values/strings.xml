@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_app">Hello Welcome To App</string>
     <string name="hello_instruction">Hello Instruction Page</string>
+    <string name="shoe_detail">Shoe Detail</string>
     <string name="shop_list">Shop List</string>
     <string name="shoes">Shoe\'s</string>
     <string name="communicate">Shoe\'s</string>
@@ -22,16 +23,12 @@
         officia deserunt mollit anim id est laborum.</string>
     <string name="go_instruction">Go Instruction</string>
     <string name="go_shop">Go Shop List</string>
-    <string name="bio">Hi, my name is Aslan.
-\n\nI love fish.
-\n\nThe kind that is alive and swims around in an aquarium or river, or a lake, and definitely the ocean.
-\nFun fact is that I have several aquariums and also a river.
-\n\nI like eating fish, too. Raw fish. Grilled fish. Smoked fish. Poached fish - not so much.
-\nAnd sometimes I even go fishing.
-\nAnd even less sometimes, I actually catch something.
-\n\nOnce, when I was camping in Canada, and very hungry, I even caught a large salmon with my hands.
-\n\nI\'ll be happy to teach you how to make your own aquarium.
-\nYou should ask someone else about fishing, though.\n\n</string>
     <string name="fab">Float Action Button</string>
     <string name="image_shoe">image shoe</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="shoe_description">Shoe Description</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="shoe_company">Shoe Company</string>
+    <string name="save_shoe">Save Shoe</string>
+    <string name="cancel">Cancel</string>
 </resources>

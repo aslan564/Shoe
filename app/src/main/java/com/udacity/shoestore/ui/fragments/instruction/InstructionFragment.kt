@@ -25,7 +25,7 @@ class InstructionFragment : Fragment() {
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@InstructionFragment
         buttonNext.setOnClickListener {
-            val action= InstructionFragmentDirections.actionFragmentDetailsToFragmentShoeList()
+            val action= InstructionFragmentDirections.actionFragmentDetailsToFragmentShoeList(null)
             it.findNavController().navigate(action)
         }
 

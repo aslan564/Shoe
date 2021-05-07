@@ -11,12 +11,14 @@ class ShoeViewModel : ViewModel() {
     val shoeList: LiveData<List<Shoe>>
         get() = _shoeList
 
+    private val shoeMutableList= mutableListOf<Shoe>()
+
+
     init {
         getShoeList()
     }
     private fun getShoeList() {
-        val shoeMutableList= mutableListOf<Shoe>()
-        repeat(15) {
+        repeat(5) {
            if (it % 2 == 0) {
                val shoe=  Shoe("test$it",3.1*it,"My $it Company","$it version shoes", mutableListOf("asgdkjsd","hjagsdjkgasgdk","jkgasdghkjahsgdjkg"))
                 shoeMutableList.add(shoe)
@@ -27,5 +29,9 @@ class ShoeViewModel : ViewModel() {
             _shoeList.postValue(shoeMutableList)
         }
 
+    }
+
+    fun addShoeList(shoeItem: Shoe) {
+        shoeMutableList.add(shoeItem)
     }
 }
