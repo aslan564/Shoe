@@ -2,9 +2,11 @@
     <string name="app_name">ShoeStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_app">Hello Welcome To App</string>
+    <string name="hello_instruction">Hello Instruction Page</string>
+    <string name="shop_list">Shop List</string>
     <string name="shoes">Shoe\'s</string>
     <string name="communicate">Shoe\'s</string>
-    <string name="details">Details</string>
+    <string name="logout">Logout</string>
     <string name="rule">Instructions</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -12,4 +14,24 @@
     <string name="register">Register</string>
     <string name="no_account">I Have not an account</string>
     <string name="have_account">I Have an account</string>
+    <string name="welcome_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed\n
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim\n
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla\n
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\n
+        officia deserunt mollit anim id est laborum.</string>
+    <string name="go_instruction">Go Instruction</string>
+    <string name="go_shop">Go Shop List</string>
+    <string name="bio">Hi, my name is Aslan.
+\n\nI love fish.
+\n\nThe kind that is alive and swims around in an aquarium or river, or a lake, and definitely the ocean.
+\nFun fact is that I have several aquariums and also a river.
+\n\nI like eating fish, too. Raw fish. Grilled fish. Smoked fish. Poached fish - not so much.
+\nAnd sometimes I even go fishing.
+\nAnd even less sometimes, I actually catch something.
+\n\nOnce, when I was camping in Canada, and very hungry, I even caught a large salmon with my hands.
+\n\nI\'ll be happy to teach you how to make your own aquarium.
+\nYou should ask someone else about fishing, though.\n\n</string>
+    <string name="fab">Float Action Button</string>
+    <string name="image_shoe">image shoe</string>
 </resources>

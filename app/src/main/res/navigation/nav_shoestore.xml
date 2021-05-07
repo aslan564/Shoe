@@ -3,40 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_shoestore"
-    app:startDestination="@id/fragment_shoes">
+    app:startDestination="@id/fragment_welcome">
 
     <fragment
-        android:id="@+id/fragment_shoes"
-        android:name="com.udacity.shoestore.ui.fragments.shoesList.ShoesFragment"
+        android:id="@+id/fragment_welcome"
+        android:name="com.udacity.shoestore.ui.fragments.boarding.WelcomeFragment"
         android:label="Welcome Screen"
-        tools:layout="@layout/fragment_shoes">
+        tools:layout="@layout/fragment_welcome">
 
 
+        <action
+            android:id="@+id/action_fragment_welcome_to_fragment_details"
+            app:destination="@id/fragment_instruction"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_details"
-        android:name="com.udacity.shoestore.ui.fragments.shoesDetalis.DetailsFragment"
+        android:id="@+id/fragment_instruction"
+        android:name="com.udacity.shoestore.ui.fragments.instruction.InstructionFragment"
         android:label="Shoes Fragment"
-        tools:layout="@layout/fragment_shoes">
+        tools:layout="@layout/fragment_instruction">
 
+        <action
+            android:id="@+id/action_fragment_details_to_fragment_shoe_list"
+            app:destination="@id/fragment_shoe_list"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_onboarding"
-        android:name="com.udacity.shoestore.ui.fragments.boarding.OnboardingFragment"
+        android:id="@+id/fragment_shoe_list"
+        android:name="com.udacity.shoestore.ui.fragments.shoesList.ShoesFragment"
         android:label="Shoes Fragment"
         tools:layout="@layout/fragment_shoes" />
 
 
-    <action
-        android:id="@+id/action_to_fragment_details"
-        app:destination="@id/fragment_details" />
-    <action
-        android:id="@+id/action_fragment_details"
-        app:destination="@id/fragment_shoes" />
-    <action
-        android:id="@+id/action_to_fragment_onboarding"
-        app:destination="@id/fragment_onboarding" />
 
 </navigation>

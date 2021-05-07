@@ -2,4 +2,9 @@
 <resources>
     <dimen name="default_field_10margin">10dp</dimen>
     <dimen name="title_size25">25sp</dimen>
+    <dimen name="body_text_size">18sp</dimen>
+    <dimen name="line_spacing_multiplier">1.2</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="layout_margin">16dp</dimen>
 </resources>

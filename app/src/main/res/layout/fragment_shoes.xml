@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/root_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.fragments.shoesList.ShoesFragment">
+        tools:context=".ui.fragments.shoesList.ShoesFragment"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:layout_height="wrap_content">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="15dp"
-            android:textSize="@dimen/title_size25"
-            android:layout_gravity="center_vertical"
-            android:text="@string/hello_app" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+               tools:listitem="@layout/item_shoe_layout"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/fab"
+                android:src="@drawable/ic_my_icon" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </layout>
