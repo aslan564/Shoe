@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_shoestore"
+    app:startDestination="@id/fragment_shoes">
+
+    <fragment
+        android:id="@+id/fragment_shoes"
+        android:name="com.udacity.shoestore.ui.fragments.shoesList.ShoesFragment"
+        android:label="Welcome Screen"
+        tools:layout="@layout/fragment_shoes">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="com.udacity.shoestore.ui.fragments.shoesDetalis.DetailsFragment"
+        android:label="Shoes Fragment"
+        tools:layout="@layout/fragment_shoes">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_onboarding"
+        android:name="com.udacity.shoestore.ui.fragments.boarding.OnboardingFragment"
+        android:label="Shoes Fragment"
+        tools:layout="@layout/fragment_shoes" />
+
+
+    <action
+        android:id="@+id/action_to_fragment_details"
+        app:destination="@id/fragment_details" />
+    <action
+        android:id="@+id/action_fragment_details"
+        app:destination="@id/fragment_shoes" />
+    <action
+        android:id="@+id/action_to_fragment_onboarding"
+        app:destination="@id/fragment_onboarding" />
+
+</navigation>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_app">Hello Welcome To App</string>
+    <string name="shoes">Shoe\'s</string>
+    <string name="communicate">Shoe\'s</string>
+    <string name="details">Details</string>
+    <string name="rule">Instructions</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="no_account">I Have not an account</string>
+    <string name="have_account">I Have an account</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <item
+                android:id="@+id/nav_shoes"
+                android:title="@string/shoes"
+                android:icon="@drawable/ic_list"/>
+            <item
+                android:id="@+id/nav_details"
+                android:icon="@drawable/ic_details"
+                android:title="@string/details" />
+
+            <item
+                android:id="@+id/nav_instruction"
+                android:icon="@drawable/ic_boarding"
+                android:title="@string/rule" />
+</menu>
