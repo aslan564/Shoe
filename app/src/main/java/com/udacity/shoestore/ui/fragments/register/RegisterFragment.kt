@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentRegisterBinding
 import com.udacity.shoestore.models.User
-import com.udacity.shoestore.ui.activity.main.MainActivity
+import com.udacity.shoestore.ui.activity.MainActivity
 import com.udacity.shoestore.util.UserConstant.USER_KEY
 import com.udacity.shoestore.viewModel.activity.LoginAndRegisterViewModel
 
@@ -39,8 +38,7 @@ class RegisterFragment : Fragment() {
         lifecycleOwner = this@RegisterFragment
 
         textViewHaveAccount.setOnClickListener {
-            val action =RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
-            it.findNavController().navigate(action)
+            Toast.makeText(requireContext(), "Login", Toast.LENGTH_SHORT).show()
         }
 
         registerButton.setOnClickListener {
