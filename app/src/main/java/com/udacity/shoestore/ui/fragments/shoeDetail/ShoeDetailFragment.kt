@@ -14,7 +14,7 @@ import com.udacity.shoestore.viewModel.fragment.ShoeViewModel
 class ShoeDetailFragment : Fragment() {
 
     private val binding by lazy { FragmentDetailShoeBinding.inflate(layoutInflater) }
-    private  val viewModel by viewModels<ShoeViewModel> ()
+    private val viewModel by viewModels<ShoeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun bindUI(): Unit = with(binding) {
-        lifecycleOwner=this@ShoeDetailFragment
+        lifecycleOwner = this@ShoeDetailFragment
         cancelButton.setOnClickListener {
             it.findNavController().popBackStack()
         }
@@ -57,7 +57,6 @@ class ShoeDetailFragment : Fragment() {
                 }
                 else -> {
                     val shoe = Shoe(name, size.toDouble(), company, desc, imageList)
-                  //  viewModel.addShoeList(shoe)
                     it.findNavController().navigate(
                         ShoeDetailFragmentDirections.actionFragmentShoeDetailsToFragmentShoeList(
                             shoe

@@ -11,17 +11,15 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoesBinding
 import com.udacity.shoestore.databinding.ItemShoeLayoutBinding
-import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewModel.fragment.ShoeViewModel
 import timber.log.Timber
 
 
 class ShoeListFragment : Fragment() {
 
-
     private val binding by lazy { FragmentShoesBinding.inflate(layoutInflater) }
     private  val viewModel by viewModels<ShoeViewModel> ()
-    private val newShoeList:ArrayList<Shoe> = arrayListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,34 +43,22 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun observeShoesList(): Unit = with(viewModel) {
-        getShoeList()
-
         arguments?.let {
             val shoe = ShoeListFragmentArgs.fromBundle(it).shoeItem
             shoe?.let {
-                addViewItem(shoe)
+                addShoeList(shoe)
             }
         }
         shoeList.observe(viewLifecycleOwner, {
             it?.let { shoeList ->
-               // newShoeList.addAll(shoeList)
                 for (item in shoeList) {
-                    addViewItem(item)
+                    val inflater = layoutInflater
+                    val view = ItemShoeLayoutBinding.inflate(inflater)
+                    view.shoe = item
+                    binding.linearLayout.addView(view.root)
                 }
             }
         })
-    }
-
-    private fun addViewItem(item: Shoe) {
-        newShoeList.add(item)
-        for (newItem in newShoeList) {
-            val inflater = layoutInflater
-            val view = ItemShoeLayoutBinding.inflate(inflater)
-
-            view.shoe = newItem
-            binding.linearLayout.addView(view.root)
-        }
-
     }
 
 
@@ -90,7 +76,6 @@ class ShoeListFragment : Fragment() {
         inflater.inflate(R.menu.shop_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
