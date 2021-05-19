@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentDetailShoeBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewModel.fragment.ShoeViewModel
@@ -14,7 +16,7 @@ import com.udacity.shoestore.viewModel.fragment.ShoeViewModel
 class ShoeDetailFragment : Fragment() {
 
     private val binding by lazy { FragmentDetailShoeBinding.inflate(layoutInflater) }
-    private val viewModel by viewModels<ShoeViewModel>()
+    private val viewModel by activityViewModels<ShoeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +33,14 @@ class ShoeDetailFragment : Fragment() {
     private fun bindUI(): Unit = with(binding) {
         lifecycleOwner = this@ShoeDetailFragment
         cancelButton.setOnClickListener {
-            it.findNavController().popBackStack()
+            val navController = it.findNavController()
+
+            if (!navController.popBackStack()) {
+                // Call finish() or popBackStack() on your Activity or fragment
+                navController.popBackStack()
+            }
+
+
         }
         saveButton.setOnClickListener {
 
@@ -40,7 +49,7 @@ class ShoeDetailFragment : Fragment() {
             val company = etShoeCompany.text.toString()
             val desc = etShoeDesc.text.toString()
             val imageList =
-                listOf<String>("dasfsdffdsaf", "dasfsdffdsaf", "dasfsdffdsaf", "dasfsdffdsaf")
+                listOf("dasfsdffdsaf", "dasfsdffdsaf", "dasfsdffdsaf", "dasfsdffdsaf")
             println("bindUI: $name")
             when ("") {
                 name -> {
@@ -56,12 +65,13 @@ class ShoeDetailFragment : Fragment() {
                     etShoeSize.error = "Required"
                 }
                 else -> {
+                    val navController = this@ShoeDetailFragment.findNavController()
                     val shoe = Shoe(name, size.toDouble(), company, desc, imageList)
-                    it.findNavController().navigate(
-                        ShoeDetailFragmentDirections.actionFragmentShoeDetailsToFragmentShoeList(
-                            shoe
-                        )
-                    )
+                    viewModel.addShoeList(shoe, true)
+                    if (!navController.popBackStack()) {
+                        // Call finish() or popBackStack() on your Activity or fragment
+                        navController.popBackStack()
+                    }
                 }
             }
         }

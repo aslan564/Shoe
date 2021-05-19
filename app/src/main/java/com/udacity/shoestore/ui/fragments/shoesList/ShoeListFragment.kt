@@ -1,24 +1,24 @@
 package com.udacity.shoestore.ui.fragments.shoesList
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoesBinding
 import com.udacity.shoestore.databinding.ItemShoeLayoutBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewModel.fragment.ShoeViewModel
-import timber.log.Timber
 
 
 class ShoeListFragment : Fragment() {
 
     private val binding by lazy { FragmentShoesBinding.inflate(layoutInflater) }
-    private  val viewModel by viewModels<ShoeViewModel> ()
+    private val viewModel by activityViewModels<ShoeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,16 +42,22 @@ class ShoeListFragment : Fragment() {
         println("onStart")
     }
 
-    private fun observeShoesList(): Unit = with(viewModel) {
-        arguments?.let {
-            val shoe = ShoeListFragmentArgs.fromBundle(it).shoeItem
-            shoe?.let {
-                addShoeList(shoe)
-            }
+
+    private fun bindUI(): Unit = with(binding) {
+        lifecycleOwner = this@ShoeListFragment
+        viewModelBinding = this@ShoeListFragment.viewModel
+
+
+        fab.setOnClickListener {
+            val action = ShoeListFragmentDirections.actionToFragmentShoeDetails()
+            it.findNavController().navigate(action)
         }
+    }
+
+    private fun observeShoesList(): Unit = with(viewModel) {
         shoeList.observe(viewLifecycleOwner, {
-            it?.let { shoeList ->
-                for (item in shoeList) {
+            it?.let { shoeItem ->
+                for (item in shoeItem) {
                     val inflater = layoutInflater
                     val view = ItemShoeLayoutBinding.inflate(inflater)
                     view.shoe = item
@@ -61,16 +67,6 @@ class ShoeListFragment : Fragment() {
         })
     }
 
-
-    private fun bindUI(): Unit = with(binding) {
-        lifecycleOwner = this@ShoeListFragment
-        viewModelBinding = this@ShoeListFragment.viewModel
-
-        fab.setOnClickListener {
-            val action = ShoeListFragmentDirections.actionToFragmentShoeDetails()
-            it.findNavController().navigate(action)
-        }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.shop_menu, menu)

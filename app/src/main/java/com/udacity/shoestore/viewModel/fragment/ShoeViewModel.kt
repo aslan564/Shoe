@@ -10,13 +10,12 @@ class ShoeViewModel : ViewModel() {
     val shoeList: LiveData<List<Shoe>>
         get() = _shoeList
 
-    private val shoeMutableList= mutableListOf<Shoe>()
 
-
-
-
-    fun addShoeList(shoeItem: Shoe) {
-        shoeMutableList.add(shoeItem)
-        _shoeList.postValue(shoeMutableList)
+    fun addShoeList(shoeItem: Shoe?, added: Boolean) {
+        val mutableList= mutableListOf<Shoe>()
+        if (added && shoeItem != null) {
+            mutableList.add(shoeItem)
+            _shoeList.postValue(mutableList)
+        }
     }
 }

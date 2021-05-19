@@ -38,8 +38,8 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popUpTo="@id/fragment_welcome"
             app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/fragment_welcome"
             app:popUpToInclusive="true" />
     </fragment>
 
@@ -59,7 +59,7 @@
         android:id="@+id/fragment_shoe_details"
         android:name="com.udacity.shoestore.ui.fragments.shoeDetail.ShoeDetailFragment"
         android:label="Shoes Details Fragment"
-        tools:layout="@layout/fragment_detail_shoe">
+        tools:layout="@layout/fragment_detail_shoe" >
         <action
             android:id="@+id/action_fragment_shoe_details_to_fragment_shoe_list"
             app:destination="@id/fragment_shoe_list"
@@ -67,8 +67,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/fragment_shoe_list"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@layout/fragment_instruction"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <action
@@ -88,9 +89,21 @@
         <action
             android:id="@+id/action_loginFragment_to_fragment_welcome"
             app:destination="@id/fragment_welcome" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <action
         android:id="@+id/action_fragment_shoe_list_to_login_fragment"
         app:destination="@id/loginFragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.udacity.shoestore.ui.fragments.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
 </navigation>
